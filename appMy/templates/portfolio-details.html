@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+<main id="main" data-aos="fade-up">
+
+  <!-- ======= Breadcrumbs Section ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Portfolio Details</h2>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'Portfolio' %}">Portfolio</a></li>
+          <li>Portfolio Details</li>
+        </ol>
+      </div>
+
+    </div>
+  </section><!-- Breadcrumbs Section -->
+
+  <!-- ======= Portfolio Details Section ======= -->
+  <section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+      <div class="row gy-4">
+
+        <div class="col-lg-8">
+          <div class="portfolio-details-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+
+              <div class="swiper-slide">
+                <img src="{{ post.image1.url }}" alt="">
+              </div>
+              
+              {% if post.image2 %}
+              <div class="swiper-slide">
+                <img src="{{ post.image2.url }}" alt="">
+              </div>
+              {% endif %}
+                
+              
+              {% if post.image3 %}
+              <div class="swiper-slide">
+                <img src="{{ post.image3.url }}" alt="">
+              </div>
+              {% endif %}
+                
+
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="portfolio-info">
+            <h3>Project information</h3>
+            <ul>
+              <li><strong>Category</strong>: {{ post.category.title }}</li>
+              <li><strong>Client</strong>: ASU Company</li>
+              <li><strong>Project date</strong>: {{ post.date_now }}</li>
+              <li><strong>Project URL</strong>: <a href="#">{{ post.post_url }}</a></li>
+            </ul>
+          </div>
+          <div class="portfolio-description">
+            <h2>{{ post.title }}</h2>
+            <p>
+              {{ post.text }}
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Details Section -->
+
+</main><!-- End #main -->
+
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+{% endblock body %}
+  
